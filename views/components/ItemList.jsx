@@ -13,6 +13,7 @@ class ItemList extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.completeItem = this.completeItem.bind(this);
     this.pauseItem = this.pauseItem.bind(this);
+    // this.repeateItem = this.repeatItem.bind(this);
   }
 
   addItem(e) {
@@ -41,6 +42,17 @@ class ItemList extends React.Component {
     });
     this.props.updateItem(pausedItem);
   }
+   /* 
+    * I want to complete an item and create a new item that repeats or references the preceeding item
+    *
+    */
+  // repeatItem(item) {
+  //   const repeatItem = Object.assign({}, item, {
+  //     status: 'complete'
+  //   });
+  //   this.props.updateItem(completedItem);
+  //   this.props.updateItem(addItem(,item.text))
+  // }
 
   renderProgress() {
     const completedAmount = this.props.completedItems.length;
@@ -106,7 +118,6 @@ class ItemList extends React.Component {
     const { pendingItems } = this.props;
     return (
       <div className="item-list">
-        {this.renderProgress()}
         <form className="form" onSubmit={this.addItem}>
           <input
             ref={(a) => this._inputElement = a}
@@ -115,6 +126,7 @@ class ItemList extends React.Component {
           />
           <button type="submit" />
         </form>
+        {this.renderProgress()}
         {
           pendingItems && pendingItems.map(item => {
             return (

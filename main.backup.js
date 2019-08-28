@@ -16,8 +16,7 @@ function createWindow() {
     height: electron.screen.height,
     fullscreenable: true,
     backgroundColor: '#403F4D',
-    icon: path.join(__dirname, 'assets/png/128x128.png'),
-    titleBarStyle: 'hidden-inset'
+    icon: path.join(__dirname, 'assets/png/128x128.png')
   });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 }
